@@ -9,7 +9,12 @@ import {
   IconBrandGithub,
   IconBrandTwitter,
   IconBrightness,
+  IconBrain,
+  IconCalculator,
   IconCalendar,
+  IconCar,
+  IconCash,
+  IconChartBar,
   IconCheck,
   IconChecks,
   IconChevronDown,
@@ -35,6 +40,7 @@ import {
   IconExternalLink,
   IconEyeOff,
   IconFile,
+  IconFileDescription,
   IconFileText,
   IconFileTypePdf,
   IconFileTypeDoc,
@@ -63,6 +69,8 @@ import {
   IconPizza,
   IconPlus,
   IconProps,
+  IconReceipt,
+  IconRobot,
   IconRosetteDiscountCheck,
   IconSearch,
   IconSelector,
@@ -71,6 +79,7 @@ import {
   IconShare,
   IconSlash,
   IconSparkles,
+  IconSpeakerphone,
   IconStack2,
   IconStar,
   IconSun,
@@ -136,6 +145,7 @@ export const Icons = {
   employee: IconUserX,
   userPen: IconUserEdit,
   teams: IconUsers,
+  users: IconUsers,
 
   // Brand
   github: IconBrandGithub,
@@ -192,6 +202,17 @@ export const Icons = {
   sparkles: IconSparkles,
   badgeCheck: IconRosetteDiscountCheck,
   lock: IconLock,
+
+  // CRM Kalman — Negócio
+  car: IconCar,
+  receipt: IconReceipt,
+  cash: IconCash,
+  chartBar: IconChartBar,
+  megaphone: IconSpeakerphone,
+  brain: IconBrain,
+  robot: IconRobot,
+  fileContract: IconFileDescription,
+  calculator: IconCalculator,
 
   // Data / Charts
   trendingDown: IconTrendingDown,
