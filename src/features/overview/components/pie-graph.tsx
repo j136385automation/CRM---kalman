@@ -13,36 +13,31 @@ import { Badge } from '@/components/ui/badge';
 import { Icons } from '@/components/icons';
 
 const chartData = [
-  { browser: 'chrome', visitors: 275, fill: 'var(--color-chrome)' },
-  { browser: 'safari', visitors: 200, fill: 'var(--color-safari)' },
-  { browser: 'firefox', visitors: 187, fill: 'var(--color-firefox)' },
-  { browser: 'edge', visitors: 173, fill: 'var(--color-edge)' },
-  { browser: 'other', visitors: 90, fill: 'var(--color-other)' }
+  { faixa: 'ate50', veiculos: 9, fill: 'var(--color-ate50)' },
+  { faixa: 'de50a90', veiculos: 12, fill: 'var(--color-de50a90)' },
+  { faixa: 'de90a150', veiculos: 8, fill: 'var(--color-de90a150)' },
+  { faixa: 'acima150', veiculos: 3, fill: 'var(--color-acima150)' }
 ];
 
 const chartConfig = {
-  visitors: {
-    label: 'Visitors'
+  veiculos: {
+    label: 'Veículos'
   },
-  chrome: {
-    label: 'Chrome',
+  ate50: {
+    label: 'Até R$50 mil',
     color: 'var(--chart-1)'
   },
-  safari: {
-    label: 'Safari',
+  de50a90: {
+    label: 'R$50–90 mil',
     color: 'var(--chart-2)'
   },
-  firefox: {
-    label: 'Firefox',
+  de90a150: {
+    label: 'R$90–150 mil',
     color: 'var(--chart-3)'
   },
-  edge: {
-    label: 'Edge',
+  acima150: {
+    label: 'Acima de R$150 mil',
     color: 'var(--chart-4)'
-  },
-  other: {
-    label: 'Other',
-    color: 'var(--chart-5)'
   }
 } satisfies ChartConfig;
 
@@ -51,13 +46,13 @@ export function PieGraph() {
     <Card className='flex h-full flex-col'>
       <CardHeader className='items-center pb-0'>
         <CardTitle>
-          Pie Chart
+          Estoque por faixa de preço
           <Badge variant='outline'>
-            <Icons.trendingUp />
-            +5.2%
+            <Icons.car />
+            32 veículos
           </Badge>
         </CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
+        <CardDescription>Distribuição atual do estoque</CardDescription>
       </CardHeader>
       <CardContent className='flex flex-1 items-center justify-center pb-0'>
         <ChartContainer
@@ -65,17 +60,18 @@ export function PieGraph() {
           className='[&_.recharts-text]:fill-background mx-auto aspect-square max-h-[300px] min-h-[250px]'
         >
           <PieChart>
-            <ChartTooltip content={<ChartTooltipContent nameKey='visitors' hideLabel />} />
+            <ChartTooltip content={<ChartTooltipContent nameKey='veiculos' hideLabel />} />
             <Pie
               data={chartData}
               innerRadius={30}
-              dataKey='visitors'
+              dataKey='veiculos'
+              nameKey='faixa'
               radius={10}
               cornerRadius={8}
               paddingAngle={4}
             >
               <LabelList
-                dataKey='visitors'
+                dataKey='veiculos'
                 stroke='none'
                 fontSize={12}
                 fontWeight={500}

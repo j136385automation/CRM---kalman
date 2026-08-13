@@ -1,41 +1,36 @@
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Card, CardHeader, CardContent, CardTitle, CardDescription } from '@/components/ui/card';
 
-const salesData = [
+const movimentacoes = [
   {
-    name: 'Olivia Martin',
-    email: 'olivia.martin@email.com',
-    avatar: 'https://api.slingacademy.com/public/sample-users/1.png',
-    fallback: 'OM',
-    amount: '+$1,999.00'
+    nome: 'Carlos Almeida',
+    detalhe: 'Venda — Honda Civic 2021',
+    fallback: 'CA',
+    valor: '+R$ 112.900,00'
   },
   {
-    name: 'Jackson Lee',
-    email: 'jackson.lee@email.com',
-    avatar: 'https://api.slingacademy.com/public/sample-users/2.png',
-    fallback: 'JL',
-    amount: '+$39.00'
+    nome: 'Fernanda Souza',
+    detalhe: 'Venda — Jeep Compass 2022',
+    fallback: 'FS',
+    valor: '+R$ 139.500,00'
   },
   {
-    name: 'Isabella Nguyen',
-    email: 'isabella.nguyen@email.com',
-    avatar: 'https://api.slingacademy.com/public/sample-users/3.png',
-    fallback: 'IN',
-    amount: '+$299.00'
+    nome: 'Leilão Sodré Santoro',
+    detalhe: 'Entrada — Toyota Corolla 2020',
+    fallback: 'LS',
+    valor: '-R$ 78.300,00'
   },
   {
-    name: 'William Kim',
-    email: 'will@email.com',
-    avatar: 'https://api.slingacademy.com/public/sample-users/4.png',
-    fallback: 'WK',
-    amount: '+$99.00'
+    nome: 'Roberto Mendes',
+    detalhe: 'Venda — VW T-Cross 2023',
+    fallback: 'RM',
+    valor: '+R$ 98.700,00'
   },
   {
-    name: 'Sofia Davis',
-    email: 'sofia.davis@email.com',
-    avatar: 'https://api.slingacademy.com/public/sample-users/5.png',
-    fallback: 'SD',
-    amount: '+$39.00'
+    nome: 'Juliana Castro',
+    detalhe: 'Consignação — Hyundai HB20 2021',
+    fallback: 'JC',
+    valor: '+R$ 64.900,00'
   }
 ];
 
@@ -43,22 +38,21 @@ export function RecentSales() {
   return (
     <Card className='h-full'>
       <CardHeader>
-        <CardTitle>Recent Sales</CardTitle>
-        <CardDescription>You made 265 sales this month.</CardDescription>
+        <CardTitle>Últimas movimentações</CardTitle>
+        <CardDescription>Você registrou 14 movimentações este mês.</CardDescription>
       </CardHeader>
       <CardContent>
         <div className='space-y-8'>
-          {salesData.map((sale, index) => (
+          {movimentacoes.map((mov, index) => (
             <div key={index} className='flex items-center'>
               <Avatar className='h-9 w-9'>
-                <AvatarImage src={sale.avatar} alt='Avatar' />
-                <AvatarFallback>{sale.fallback}</AvatarFallback>
+                <AvatarFallback>{mov.fallback}</AvatarFallback>
               </Avatar>
               <div className='ml-4 space-y-1'>
-                <p className='text-sm leading-none font-medium'>{sale.name}</p>
-                <p className='text-muted-foreground text-sm'>{sale.email}</p>
+                <p className='text-sm leading-none font-medium'>{mov.nome}</p>
+                <p className='text-muted-foreground text-sm'>{mov.detalhe}</p>
               </div>
-              <div className='ml-auto font-medium'>{sale.amount}</div>
+              <div className='ml-auto font-medium tabular-nums'>{mov.valor}</div>
             </div>
           ))}
         </div>
