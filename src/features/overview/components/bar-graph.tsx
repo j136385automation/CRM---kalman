@@ -13,22 +13,26 @@ import { Badge } from '@/components/ui/badge';
 import { Icons } from '@/components/icons';
 
 const chartData = [
-  { month: 'January', desktop: 186, mobile: 80 },
-  { month: 'February', desktop: 305, mobile: 200 },
-  { month: 'March', desktop: 237, mobile: 120 },
-  { month: 'April', desktop: 73, mobile: 190 },
-  { month: 'May', desktop: 209, mobile: 130 },
-  { month: 'June', desktop: 214, mobile: 140 }
+  { mes: 'Jun', compra: 6, venda: 11, consignacao: 2 },
+  { mes: 'Jul', compra: 8, venda: 13, consignacao: 3 },
+  { mes: 'Ago', compra: 5, venda: 15, consignacao: 2 },
+  { mes: 'Set', compra: 7, venda: 12, consignacao: 4 },
+  { mes: 'Out', compra: 9, venda: 16, consignacao: 3 },
+  { mes: 'Nov', compra: 8, venda: 14, consignacao: 3 }
 ];
 
 const chartConfig = {
-  desktop: {
-    label: 'Desktop',
+  compra: {
+    label: 'Compra',
     color: 'var(--chart-1)'
   },
-  mobile: {
-    label: 'Mobile',
+  venda: {
+    label: 'Venda',
     color: 'var(--chart-2)'
+  },
+  consignacao: {
+    label: 'Consignação',
+    color: 'var(--chart-3)'
   }
 } satisfies ChartConfig;
 
@@ -37,13 +41,13 @@ export function BarGraph() {
     <Card>
       <CardHeader>
         <CardTitle>
-          Bar Chart - Multiple
+          Notas emitidas por mês
           <Badge variant='outline'>
-            <Icons.trendingDown />
-            -5.2%
+            <Icons.trendingUp />
+            +8,3%
           </Badge>
         </CardTitle>
-        <CardDescription>January - June 2025</CardDescription>
+        <CardDescription>Compra, venda e consignação — Jun a Nov/2025</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
@@ -58,27 +62,27 @@ export function BarGraph() {
             <defs>
               <DottedBackgroundPattern />
             </defs>
-            <XAxis
-              dataKey='month'
-              tickLine={false}
-              tickMargin={10}
-              axisLine={false}
-              tickFormatter={(value) => value.slice(0, 3)}
-            />
+            <XAxis dataKey='mes' tickLine={false} tickMargin={10} axisLine={false} />
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent indicator='dashed' hideLabel />}
             />
             <Bar
-              dataKey='desktop'
+              dataKey='compra'
               color='var(--chart-1)'
-              fill='var(--color-desktop)'
+              fill='var(--color-compra)'
               shape={<CustomHatchedBar isHatched={false} />}
               radius={4}
             />
             <Bar
-              dataKey='mobile'
-              fill='var(--color-mobile)'
+              dataKey='venda'
+              fill='var(--color-venda)'
+              shape={<CustomHatchedBar />}
+              radius={4}
+            />
+            <Bar
+              dataKey='consignacao'
+              fill='var(--color-consignacao)'
               shape={<CustomHatchedBar />}
               radius={4}
             />
