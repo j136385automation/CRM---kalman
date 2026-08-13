@@ -1,50 +1,166 @@
 import { NavGroup } from '@/types';
 
 /**
- * Navigation configuration with RBAC support
+ * Configuração de navegação com suporte a RBAC
  *
- * This configuration is used for both the sidebar navigation and Cmd+K bar.
- * Items are organized into groups, each rendered with a SidebarGroupLabel.
+ * Esta configuração é usada tanto na navegação da sidebar quanto na barra Cmd+K.
+ * Os itens são organizados em grupos, cada um renderizado com um SidebarGroupLabel.
  *
- * RBAC Access Control:
- * Each navigation item can have an `access` property that controls visibility
- * based on permissions, plans, features, roles, and organization context.
+ * Controle de acesso RBAC:
+ * Cada item de navegação pode ter uma propriedade `access` que controla a
+ * visibilidade com base em permissões, planos, recursos, papéis e contexto
+ * da organização.
  *
- * Examples:
+ * Exemplos:
  *
- * 1. Require organization:
+ * 1. Exigir organização:
  *    access: { requireOrg: true }
  *
- * 2. Require specific permission:
+ * 2. Exigir permissão específica:
  *    access: { requireOrg: true, permission: 'org:teams:manage' }
  *
- * 3. Require specific plan:
+ * 3. Exigir plano específico:
  *    access: { plan: 'pro' }
  *
- * 4. Require specific feature:
+ * 4. Exigir recurso específico:
  *    access: { feature: 'premium_access' }
  *
- * 5. Require specific role:
+ * 5. Exigir papel específico:
  *    access: { role: 'admin' }
  *
- * 6. Multiple conditions (all must be true):
+ * 6. Múltiplas condições (todas devem ser verdadeiras):
  *    access: { requireOrg: true, permission: 'org:teams:manage', plan: 'pro' }
  *
- * Note: The `visible` function is deprecated but still supported for backward compatibility.
- * Use the `access` property for new items.
+ * Nota: a função `visible` está depreciada, mas ainda é suportada para
+ * compatibilidade. Use a propriedade `access` para novos itens.
  */
 export const navGroups: NavGroup[] = [
   {
-    label: 'Overview',
+    label: 'Visão Geral',
     items: [
       {
-        title: 'Dashboard',
+        title: 'Visão Geral',
         url: '/dashboard/overview',
         icon: 'dashboard',
         isActive: false,
         shortcut: ['d', 'd'],
         items: []
+      }
+    ]
+  },
+  {
+    label: 'Operação da Loja',
+    items: [
+      {
+        title: 'Fiscal e Notas',
+        url: '#',
+        icon: 'receipt',
+        isActive: true,
+        items: [
+          {
+            title: 'Notas Fiscais',
+            url: '/dashboard/fiscal',
+            icon: 'receipt'
+          },
+          {
+            title: 'Emitir Nota',
+            url: '/dashboard/fiscal/nova',
+            icon: 'add'
+          },
+          {
+            title: 'Impostos e Contabilidade',
+            url: '/dashboard/contabilidade',
+            icon: 'calculator'
+          },
+          {
+            title: 'Contratos e Documentos',
+            url: '/dashboard/contratos',
+            icon: 'fileContract'
+          }
+        ]
       },
+      {
+        title: 'Estoque',
+        url: '/dashboard/estoque',
+        icon: 'car',
+        isActive: false,
+        shortcut: ['e', 'e'],
+        items: []
+      },
+      {
+        title: 'Financeiro',
+        url: '#',
+        icon: 'cash',
+        isActive: true,
+        items: [
+          {
+            title: 'Visão Financeira',
+            url: '/dashboard/financeiro',
+            icon: 'chartBar'
+          },
+          {
+            title: 'Fluxo de Caixa',
+            url: '/dashboard/financeiro/fluxo-caixa',
+            icon: 'cash'
+          },
+          {
+            title: 'DRE',
+            url: '/dashboard/financeiro/dre',
+            icon: 'page'
+          }
+        ]
+      },
+      {
+        title: 'Agenda e Horários',
+        url: '/dashboard/agenda',
+        icon: 'calendar',
+        isActive: false,
+        shortcut: ['a', 'a'],
+        items: []
+      }
+    ]
+  },
+  {
+    label: 'Crescimento',
+    items: [
+      {
+        title: 'Anúncios',
+        url: '/dashboard/anuncios',
+        icon: 'megaphone',
+        isActive: false,
+        items: []
+      },
+      {
+        title: 'IA Kalman',
+        url: '/dashboard/ia-kalman',
+        icon: 'brain',
+        isActive: false,
+        items: []
+      }
+    ]
+  },
+  {
+    label: 'Automação (Operação IA)',
+    items: [
+      {
+        title: 'Leads',
+        url: '/dashboard/leads',
+        icon: 'users',
+        isActive: false,
+        items: []
+      },
+      {
+        title: 'Robô WhatsApp',
+        url: '/dashboard/robo',
+        icon: 'robot',
+        isActive: false,
+        items: []
+      }
+    ]
+  },
+  {
+    label: 'Conta',
+    items: [
       {
         title: 'Workspaces',
         url: '/dashboard/workspaces',
@@ -53,7 +169,7 @@ export const navGroups: NavGroup[] = [
         items: []
       },
       {
-        title: 'Teams',
+        title: 'Equipe',
         url: '/dashboard/workspaces/team',
         icon: 'teams',
         isActive: false,
@@ -61,136 +177,29 @@ export const navGroups: NavGroup[] = [
         access: { requireOrg: true }
       },
       {
-        title: 'Product',
-        url: '/dashboard/product',
-        icon: 'product',
-        shortcut: ['p', 'p'],
+        title: 'Perfil',
+        url: '/dashboard/profile',
+        icon: 'profile',
         isActive: false,
+        shortcut: ['m', 'm'],
         items: []
       },
       {
-        title: 'Users',
-        url: '/dashboard/users',
-        icon: 'teams',
-        shortcut: ['u', 'u'],
+        title: 'Notificações',
+        url: '/dashboard/notifications',
+        icon: 'notification',
         isActive: false,
+        shortcut: ['n', 'n'],
         items: []
       },
       {
-        title: 'Kanban',
-        url: '/dashboard/kanban',
-        icon: 'kanban',
-        shortcut: ['k', 'k'],
+        title: 'Planos e Cobrança',
+        url: '/dashboard/billing',
+        icon: 'billing',
         isActive: false,
-        items: []
-      },
-      {
-        title: 'Chat',
-        url: '/dashboard/chat',
-        icon: 'chat',
-        shortcut: ['c', 'c'],
-        isActive: false,
-        items: []
-      }
-    ]
-  },
-  {
-    label: 'Elements',
-    items: [
-      {
-        title: 'Forms',
-        url: '#',
-        icon: 'forms',
-        isActive: true,
-        items: [
-          {
-            title: 'Basic Form',
-            url: '/dashboard/forms/basic',
-            icon: 'forms',
-            shortcut: ['f', 'f']
-          },
-          {
-            title: 'Multi-Step Form',
-            url: '/dashboard/forms/multi-step',
-            icon: 'forms'
-          },
-          {
-            title: 'Sheet & Dialog',
-            url: '/dashboard/forms/sheet-form',
-            icon: 'forms'
-          },
-          {
-            title: 'Advanced Patterns',
-            url: '/dashboard/forms/advanced',
-            icon: 'forms'
-          }
-        ]
-      },
-      {
-        title: 'React Query',
-        url: '/dashboard/react-query',
-        icon: 'code',
-        isActive: false,
-        items: []
-      },
-      {
-        title: 'Icons',
-        url: '/dashboard/elements/icons',
-        icon: 'palette',
-        isActive: false,
-        items: []
-      }
-    ]
-  },
-  {
-    label: '',
-    items: [
-      {
-        title: 'Pro',
-        url: '#',
-        icon: 'pro',
-        isActive: true,
-        items: [
-          {
-            title: 'Exclusive',
-            url: '/dashboard/exclusive',
-            icon: 'exclusive',
-            shortcut: ['e', 'e']
-          }
-        ]
-      },
-      {
-        title: 'Account',
-        url: '#',
-        icon: 'account',
-        isActive: true,
-        items: [
-          {
-            title: 'Profile',
-            url: '/dashboard/profile',
-            icon: 'profile',
-            shortcut: ['m', 'm']
-          },
-          {
-            title: 'Notifications',
-            url: '/dashboard/notifications',
-            icon: 'notification',
-            shortcut: ['n', 'n']
-          },
-          {
-            title: 'Billing',
-            url: '/dashboard/billing',
-            icon: 'billing',
-            shortcut: ['b', 'b'],
-            access: { requireOrg: true }
-          },
-          {
-            title: 'Login',
-            shortcut: ['l', 'l'],
-            url: '/',
-            icon: 'login'
-          }
-        ]
+        shortcut: ['b', 'b'],
+        items: [],
+        access: { requireOrg: true }
       }
     ]
   }
