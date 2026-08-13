@@ -7,8 +7,10 @@ export default function PieStatsError({ error }: { error: Error }) {
   return (
     <Alert variant='destructive'>
       <Icons.alertCircle className='h-4 w-4' />
-      <AlertTitle>Error</AlertTitle>
-      <AlertDescription>Failed to load pie statistics: {error.message}</AlertDescription>
+      <AlertTitle>Erro</AlertTitle>
+      <AlertDescription>
+        Falha ao carregar o estoque por faixa de preço: {error.message}
+      </AlertDescription>
     </Alert>
   );
 }
