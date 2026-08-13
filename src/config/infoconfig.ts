@@ -1,49 +1,49 @@
 import type { InfobarContent } from '@/components/ui/infobar';
 
 export const workspacesInfoContent: InfobarContent = {
-  title: 'Workspaces Management',
+  title: 'Gestão de Workspaces',
   sections: [
     {
-      title: 'Overview',
+      title: 'Visão geral',
       description:
-        'The Workspaces page allows you to manage your workspaces and switch between them. This feature is powered by Clerk Organizations, which enables multi-tenant workspace management. You can view all available workspaces, create new ones, and switch your active workspace.',
+        'A página de Workspaces permite gerenciar seus workspaces e alternar entre eles. Este recurso usa Clerk Organizations, que habilita a gestão multi-inquilino. Você pode ver todos os workspaces disponíveis, criar novos e alternar o workspace ativo.',
       links: [
         {
-          title: 'Clerk Organizations Documentation',
+          title: 'Documentação do Clerk Organizations',
           url: 'https://clerk.com/docs/organizations/overview'
         }
       ]
     },
     {
-      title: 'Creating Workspaces',
+      title: 'Criando workspaces',
       description:
-        'To create a new workspace, click the "Create Organization" button. You will be prompted to enter a workspace name and configure initial settings. Once created, you can switch to the new workspace and start managing it.',
+        'Para criar um novo workspace, clique no botão "Criar Organização". Você deverá informar um nome e configurar as opções iniciais. Depois de criado, você pode alternar para o novo workspace e começar a gerenciá-lo.',
       links: [
         {
-          title: 'Multi-tenant Authentication Guide',
+          title: 'Guia de autenticação multi-inquilino',
           url: 'https://clerk.com/blog/how-to-build-multitenant-authentication-with-clerk'
         }
       ]
     },
     {
-      title: 'Switching Workspaces',
+      title: 'Alternando workspaces',
       description:
-        'You can switch between workspaces by clicking on a workspace in the list. The selected workspace becomes your active organization context, and all organization-specific features will use this workspace.',
+        'Você pode alternar entre workspaces clicando em um workspace da lista. O workspace selecionado passa a ser o contexto ativo da organização, e todos os recursos específicos da organização usarão esse workspace.',
       links: []
     },
     {
-      title: 'Workspace Features',
+      title: 'Recursos do workspace',
       description:
-        'Each workspace operates independently with its own team members, roles, permissions, and billing. This allows you to manage multiple projects or teams within a single account while keeping their data and settings separate.',
+        'Cada workspace opera de forma independente, com seus próprios membros, papéis, permissões e cobrança. Isso permite gerenciar vários projetos ou equipes em uma única conta, mantendo dados e configurações separados.',
       links: []
     },
     {
-      title: 'Server-Side Permission Checks',
+      title: 'Verificações de permissão no servidor',
       description:
-        "This application follows Clerk's recommended patterns for multi-tenant authentication. Server-side permission checks ensure that users can only access resources for their active organization.",
+        'Esta aplicação segue os padrões recomendados pelo Clerk para autenticação multi-inquilino. As verificações de permissão no servidor garantem que os usuários só acessem recursos da organização ativa.',
       links: [
         {
-          title: 'Clerk Organizations Documentation',
+          title: 'Documentação do Clerk Organizations',
           url: 'https://clerk.com/docs/organizations/overview'
         }
       ]
@@ -52,189 +52,189 @@ export const workspacesInfoContent: InfobarContent = {
 };
 
 export const teamInfoContent: InfobarContent = {
-  title: 'Team Management',
+  title: 'Gestão da Equipe',
   sections: [
     {
-      title: 'Overview',
+      title: 'Visão geral',
       description:
-        "The Team Management page allows you to manage your workspace team, including members, roles, security settings, and more. This page provides comprehensive organization management through Clerk's OrganizationProfile component.",
+        'A página de Gestão da Equipe permite administrar a equipe do seu workspace, incluindo membros, papéis, configurações de segurança e muito mais. A página usa o componente OrganizationProfile do Clerk.',
       links: [
         {
-          title: 'Clerk Organizations Documentation',
+          title: 'Documentação do Clerk Organizations',
           url: 'https://clerk.com/docs/organizations/overview'
         }
       ]
     },
     {
-      title: 'Managing Team Members',
+      title: 'Gerenciando membros',
       description:
-        'You can add, remove, and manage team members from this page. Invite new members by email, assign roles, and control their access levels. Each member can have different permissions based on their role.',
+        'Você pode adicionar, remover e gerenciar membros da equipe nesta página. Convide novos membros por e-mail, atribua papéis e controle os níveis de acesso. Cada membro pode ter permissões diferentes conforme seu papel.',
       links: []
     },
     {
-      title: 'Roles and Permissions',
+      title: 'Papéis e permissões',
       description:
-        'Configure default roles and permissions in the Clerk Dashboard under Organizations settings. Roles define what actions team members can perform within the workspace. Common roles include admin, member, and custom roles you define.',
+        'Configure papéis e permissões padrão no painel do Clerk, nas configurações de Organizations. Os papéis definem quais ações os membros podem executar no workspace. Os papéis mais comuns são admin, member e papéis personalizados.',
       links: [
         {
-          title: 'Clerk Organizations Documentation',
+          title: 'Documentação do Clerk Organizations',
           url: 'https://clerk.com/docs/organizations/overview'
         }
       ]
     },
     {
-      title: 'Security Settings',
+      title: 'Configurações de segurança',
       description:
-        "Manage security settings for your workspace, including authentication requirements, session management, and access controls. These settings help protect your organization's data and resources.",
+        'Gerencie as configurações de segurança do workspace, incluindo requisitos de autenticação, gestão de sessões e controles de acesso. Essas configurações ajudam a proteger os dados e recursos da sua organização.',
       links: []
     },
     {
-      title: 'Organization Settings',
+      title: 'Configurações da organização',
       description:
-        'Configure general organization settings such as name, logo, and other workspace preferences. These settings apply to the entire workspace and affect all team members.',
+        'Defina configurações gerais da organização, como nome, logotipo e outras preferências do workspace. Essas configurações valem para todo o workspace e afetam todos os membros da equipe.',
       links: []
     },
     {
-      title: 'Navigation RBAC System',
+      title: 'Sistema de RBAC na navegação',
       description:
-        'The application includes a fully client-side navigation filtering system using the `useNav` hook. It supports `requireOrg`, `permission`, and `role` checks for instant access control. Navigation items are configured in `src/config/nav-config.ts` with `access` properties.',
+        'A aplicação inclui um sistema de filtragem de navegação totalmente client-side usando o hook `useNav`. Ele suporta verificações de `requireOrg`, `permission` e `role` para controle de acesso instantâneo. Os itens de navegação são configurados em `src/config/nav-config.ts` com propriedades `access`.',
       links: []
     }
   ]
 };
 
 export const billingInfoContent: InfobarContent = {
-  title: 'Billing & Plans',
+  title: 'Planos e Cobrança',
   sections: [
     {
-      title: 'Overview',
+      title: 'Visão geral',
       description:
-        "The Billing page allows you to manage your organization's subscription and usage limits. Plans and subscriptions are managed through Clerk Billing for B2B, which provides organization-level subscription management with integrated Stripe payment processing.",
+        'A página de Planos e Cobrança permite gerenciar a assinatura e os limites de uso da sua organização. Planos e assinaturas são gerenciados pelo Clerk Billing para B2B, com gestão de assinaturas no nível da organização e processamento de pagamentos integrado ao Stripe.',
       links: [
         {
-          title: 'Clerk Billing Documentation',
+          title: 'Documentação do Clerk Billing',
           url: 'https://clerk.com/docs/billing/overview'
         }
       ]
     },
     {
-      title: 'Available Plans',
+      title: 'Planos disponíveis',
       description:
-        'View and subscribe to available plans through the pricing table. Plans are created and managed in the Clerk Dashboard. Toggle "Publicly available" on plans to show them in the pricing table. Common plans include free, pro, and team tiers.',
+        'Veja e assine os planos disponíveis na tabela de preços. Os planos são criados e gerenciados no painel do Clerk. Ative a opção "Publicly available" nos planos para exibi-los na tabela de preços. Os planos mais comuns são free, pro e team.',
       links: [
         {
-          title: 'Clerk Dashboard - Plans',
+          title: 'Painel do Clerk — Planos',
           url: 'https://dashboard.clerk.com/~/billing/plans'
         }
       ]
     },
     {
-      title: 'Plan Features',
+      title: 'Recursos do plano',
       description:
-        'Each plan can include specific features that unlock functionality in the application. Features are added to plans in the Clerk Dashboard and can be checked in code using the `has()` function with `feature` checks.',
+        'Cada plano pode incluir recursos específicos que desbloqueiam funcionalidades na aplicação. Os recursos são adicionados aos planos no painel do Clerk e podem ser verificados no código usando a função `has()` com checks de `feature`.',
       links: []
     },
     {
-      title: 'Access Control',
+      title: 'Controle de acesso',
       description:
-        'Plans and features are used for access control throughout the application. Server-side checks use the `has()` function to verify plan or feature access. Client-side protection uses the `<Show>` component to conditionally render content based on subscription status.',
+        'Planos e recursos são usados para controle de acesso em toda a aplicação. Verificações no servidor usam a função `has()` para validar o acesso a planos ou recursos. No cliente, o componente `<Show>` renderiza conteúdo condicionalmente conforme o status da assinatura.',
       links: []
     },
     {
-      title: 'Billing Cost Structure',
+      title: 'Estrutura de custos do Billing',
       description:
-        "Clerk Billing costs 0.7% per transaction, plus transaction fees paid directly to Stripe. Clerk Billing is not the same as Stripe Billing - plans and pricing are managed through the Clerk Dashboard and won't sync with existing Stripe products. Clerk uses Stripe only for payment processing.",
+        'O Clerk Billing cobra 0,7% por transação, além das taxas pagas diretamente ao Stripe. O Clerk Billing não é o mesmo que o Stripe Billing — planos e preços são gerenciados no painel do Clerk e não sincronizam com produtos Stripe existentes. O Clerk usa o Stripe apenas para processamento de pagamentos.',
       links: []
     },
     {
-      title: 'Setup Requirements',
+      title: 'Requisitos de configuração',
       description:
-        "To enable billing, navigate to Billing Settings in the Clerk Dashboard and enable billing for your application. Choose between Clerk's development gateway (for testing) or your own Stripe account (for production). Note: A Stripe account created for development cannot be used for production.",
+        'Para habilitar a cobrança, acesse Billing Settings no painel do Clerk e ative o billing para a sua aplicação. Escolha entre o gateway de desenvolvimento do Clerk (para testes) ou sua própria conta Stripe (para produção). Atenção: uma conta Stripe criada para desenvolvimento não pode ser usada em produção.',
       links: [
         {
-          title: 'Billing Settings',
+          title: 'Configurações de Billing',
           url: 'https://dashboard.clerk.com/~/billing/settings'
         }
       ]
     },
     {
-      title: 'Beta Status',
+      title: 'Status Beta',
       description:
-        'Billing is currently in Beta and its APIs are experimental and may undergo breaking changes. To mitigate potential disruptions, we recommend pinning your SDK and `clerk-js` package versions.',
+        'O Billing está atualmente em Beta e suas APIs são experimentais, podendo sofrer mudanças incompatíveis. Para reduzir possíveis impactos, recomendamos fixar as versões do SDK e do pacote `clerk-js`.',
       links: []
     }
   ]
 };
 
 export const productInfoContent: InfobarContent = {
-  title: 'Product Management',
+  title: 'Gestão de Produtos',
   sections: [
     {
-      title: 'Overview',
+      title: 'Visão geral',
       description:
-        'The Products page allows you to manage your product catalog. You can view all products in a table format with server-side functionality including sorting, filtering, pagination, and search capabilities. Use the "Add New" button to create new products.',
+        'A página de Produtos permite gerenciar o catálogo de produtos. Você pode ver todos os produtos em uma tabela com ordenação, filtros, paginação e busca no servidor. Use o botão "Adicionar Novo" para criar novos produtos.',
       links: [
         {
-          title: 'Product Management Guide',
+          title: 'Guia de gestão de produtos',
           url: '#'
         }
       ]
     },
     {
-      title: 'Adding Products',
+      title: 'Adicionando produtos',
       description:
-        'To add a new product, click the "Add New" button in the page header. You will be taken to a form where you can enter product details including name, description, price, category, and upload product images.',
+        'Para adicionar um novo produto, clique no botão "Adicionar Novo" no cabeçalho da página. Você verá um formulário para informar os dados do produto, incluindo nome, descrição, preço, categoria e upload de imagens.',
       links: [
         {
-          title: 'Adding Products Documentation',
+          title: 'Documentação de cadastro de produtos',
           url: '#'
         }
       ]
     },
     {
-      title: 'Editing Products',
+      title: 'Editando produtos',
       description:
-        'You can edit existing products by clicking on a product row in the table. This will open the product edit form where you can modify any product information. Changes are saved automatically when you submit the form.',
+        'Você pode editar produtos existentes clicando em uma linha da tabela. Isso abre o formulário de edição, onde é possível alterar qualquer informação do produto. As mudanças são salvas automaticamente ao enviar o formulário.',
       links: [
         {
-          title: 'Editing Products Guide',
+          title: 'Guia de edição de produtos',
           url: '#'
         }
       ]
     },
     {
-      title: 'Deleting Products',
+      title: 'Excluindo produtos',
       description:
-        'Products can be deleted from the product listing table. Click the delete action for the product you want to remove. You will be asked to confirm the deletion before the product is permanently removed from your catalog.',
+        'Produtos podem ser excluídos na tabela de listagem. Clique na ação de exclusão do produto que deseja remover. Será pedida a confirmação antes de o produto ser removido permanentemente do catálogo.',
       links: [
         {
-          title: 'Product Deletion Policy',
+          title: 'Política de exclusão de produtos',
           url: '#'
         }
       ]
     },
     {
-      title: 'Table Features',
+      title: 'Recursos da tabela',
       description:
-        'The product table includes several powerful features to help you manage large product catalogs efficiently. You can sort columns by clicking on column headers, filter products using the filter controls, navigate through pages using pagination, and quickly find products using the search functionality.',
+        'A tabela de produtos inclui vários recursos para gerenciar catálogos grandes com eficiência. Você pode ordenar colunas clicando nos cabeçalhos, filtrar produtos com os controles de filtro, navegar pelas páginas com a paginação e encontrar produtos rapidamente com a busca.',
       links: [
         {
-          title: 'Table Features Documentation',
+          title: 'Documentação dos recursos da tabela',
           url: '#'
         },
         {
-          title: 'Sorting and Filtering Guide',
+          title: 'Guia de ordenação e filtros',
           url: '#'
         }
       ]
     },
     {
-      title: 'Product Fields',
+      title: 'Campos do produto',
       description:
-        'Each product can have the following fields: Name (required), Description (optional text), Price (numeric value), Category (for organizing products), and Image Upload (for product photos). All fields can be edited when creating or updating a product.',
+        'Cada produto pode ter os seguintes campos: Nome (obrigatório), Descrição (texto opcional), Preço (valor numérico), Categoria (para organizar os produtos) e Upload de Imagem (fotos do produto). Todos os campos podem ser editados ao criar ou atualizar um produto.',
       links: [
         {
-          title: 'Product Fields Specification',
+          title: 'Especificação dos campos do produto',
           url: '#'
         }
       ]
