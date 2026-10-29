@@ -9,6 +9,13 @@ import type { VeiculoFilters, VeiculoMutationPayload, VeiculosResponse } from '.
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/** Snapshot for contract prefill. The stock provider is still the existing demo adapter. */
+export async function getVeiculoById(id: number): Promise<Veiculo | null> {
+  if (!Number.isSafeInteger(id) || id < 1) return null;
+  const veiculo = VEICULOS.find((item) => item.id === id);
+  return veiculo ? { ...veiculo } : null;
+}
+
 function matchFaixaPreco(preco: number, faixas: string[]) {
   return faixas.some((faixa) => {
     switch (faixa) {

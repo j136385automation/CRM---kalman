@@ -88,6 +88,13 @@ export const navGroups: NavGroup[] = [
         items: []
       },
       {
+        title: 'Consignações',
+        url: '/dashboard/consignacoes',
+        icon: 'fileContract',
+        isActive: false,
+        items: []
+      },
+      {
         title: 'Financeiro',
         url: '#',
         icon: 'cash',

@@ -7,6 +7,8 @@ import type { Veiculo } from '../../api/types';
 import { FAIXA_PRECO_OPTIONS, MARCA_OPTIONS, STATUS_OPTIONS } from '../../constants/veiculos';
 import { Column, ColumnDef } from '@tanstack/react-table';
 import { Icons } from '@/components/icons';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
 
 function badgeDiasEmEstoque(dias: number) {
   if (dias > 60) {
@@ -170,6 +172,12 @@ export const columns: ColumnDef<Veiculo>[] = [
     }
   },
   {
+    id: 'origem',
+    accessorKey: 'origem',
+    header: 'Origem',
+    cell: ({ row }) => <Badge variant='outline'>{row.original.origem ?? 'Compra'}</Badge>
+  },
+  {
     id: 'status',
     accessorKey: 'status',
     enableSorting: false,
@@ -183,5 +191,30 @@ export const columns: ColumnDef<Veiculo>[] = [
       options: STATUS_OPTIONS
     },
     enableColumnFilter: true
+  },
+  {
+    id: 'contrato',
+    header: 'Documentação',
+    enableSorting: false,
+    cell: ({ row }) => {
+      const modalidade =
+        row.original.origem === 'Consignação' ? 'consignacao_estimatoria' : 'compra_venda';
+      return (
+        <Button
+          size='sm'
+          variant='outline'
+          nativeButton={false}
+          render={
+            <Link
+              href={`/dashboard/consignacoes/nova?veiculo=${row.original.id}&modalidade=${modalidade}`}
+              aria-label={`Formalizar operação do veículo ${row.original.placa}`}
+            />
+          }
+        >
+          <Icons.fileContract className='size-4' />
+          Formalizar operação
+        </Button>
+      );
+    }
   }
 ];
