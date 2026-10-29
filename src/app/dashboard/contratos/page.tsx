@@ -10,7 +10,7 @@ export default function Page() {
   return (
     <PageContainer
       pageTitle='Contratos e Documentos'
-      pageDescription='Documentos da revenda com assinatura eletrônica e arquivamento.'
+      pageDescription='Contratos preenchidos com os dados da negociação, minutas e histórico de versões.'
       pageHeaderAction={<NovoDocumentoSheet />}
     >
       <ContratosPage />

@@ -16,9 +16,13 @@ export default function VeiculoForm() {
 
   const createMutation = useMutation({
     ...createVeiculoMutation,
-    onSuccess: () => {
+    onSuccess: (result) => {
       toast.success('Veículo cadastrado com sucesso');
-      router.push('/dashboard/estoque');
+      router.push(
+        result.veiculo.origem === 'Consignação'
+          ? `/dashboard/consignacoes/nova?veiculo=${result.veiculo.id}&modalidade=consignacao_estimatoria`
+          : '/dashboard/estoque'
+      );
     },
     onError: () => {
       toast.error('Falha ao cadastrar o veículo');
@@ -159,18 +163,29 @@ export default function VeiculoForm() {
                 }}
               />
 
-              <FormTextField
-                name='valorCompra'
-                label='Valor de compra (R$)'
-                required
-                type='number'
-                min={0}
-                step={0.01}
-                placeholder='Ex.: 138500'
-                validators={{
-                  onBlur: z.number({ message: 'Informe o valor de compra' })
-                }}
-              />
+              <form.Subscribe selector={(state) => state.values.origem}>
+                {(origem) => (
+                  <FormTextField
+                    name='valorCompra'
+                    label={
+                      origem === 'Consignação'
+                        ? 'Preço estimado do proprietário (R$)'
+                        : 'Valor de compra (R$)'
+                    }
+                    description={
+                      origem === 'Consignação'
+                        ? 'Depois do cadastro, complete a modalidade e as condições da consignação.'
+                        : undefined
+                    }
+                    required
+                    type='number'
+                    min={0}
+                    step={0.01}
+                    placeholder='Ex.: 138500'
+                    validators={{ onBlur: z.number({ message: 'Informe o valor' }) }}
+                  />
+                )}
+              </form.Subscribe>
 
               <FormTextField
                 name='valorVenda'

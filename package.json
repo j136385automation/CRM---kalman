@@ -10,6 +10,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "test:consignacao": "node --import tsx scripts/test-consignacao.mjs",
+    "test:database": "node --import tsx src/features/consignacao/tests/database.test.ts",
+    "db:migrate:negociacoes": "node scripts/migrate-negociacoes.mjs",
     "cleanup": "node scripts/cleanup.js",
     "lint": "oxlint",
     "lint:fix": "oxlint --fix && bun format",
@@ -44,6 +48,7 @@
     "next-themes": "^0.4.6",
     "nextjs-toploader": "^3.9.17",
     "nuqs": "^2.8.9",
+    "pg": "^8.23.1",
     "postcss": "8.5.14",
     "react": "19.2.4",
     "react-day-picker": "^9.14.0",
@@ -52,6 +57,7 @@
     "react-resizable-panels": "^2.1.9",
     "react-responsive": "^10.0.1",
     "recharts": "^2.15.4",
+    "server-only": "^0.0.1",
     "sharp": "^0.33.5",
     "sonner": "^1.7.4",
     "sort-by": "^1.2.0",
@@ -67,6 +73,7 @@
   "devDependencies": {
     "@faker-js/faker": "^9.9.0",
     "@types/node": "22.10.2",
+    "@types/pg": "^8.23.1",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@types/sort-by": "^1.2.3",
@@ -75,6 +82,7 @@
     "lint-staged": "^15.5.2",
     "oxfmt": "^0.42.0",
     "oxlint": "^1.57.0",
+    "tsx": "^4.23.15",
     "tw-animate-css": "^1.4.0"
   },
   "overrides": {

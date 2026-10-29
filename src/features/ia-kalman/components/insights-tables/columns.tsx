@@ -89,7 +89,7 @@ export const columns: ColumnDef<InsightVeiculo>[] = [
     ),
     cell: ({ cell }) => (
       <div className='tabular-nums'>
-        {cell.getValue<InsightVeiculo['desvalorizacaoPrevista']().toLocaleString('pt-BR', {
+        {cell.getValue<InsightVeiculo['desvalorizacaoPrevista']>().toLocaleString('pt-BR', {
           minimumFractionDigits: 1
         })}
         %

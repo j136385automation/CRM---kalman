@@ -24,9 +24,20 @@ export default async function Page(props: pageProps) {
       pageTitle='Estoque de veículos'
       pageDescription='Gerencie os veículos da sua revenda: preços, dias em estoque e status.'
       pageHeaderAction={
-        <Link href='/dashboard/estoque/novo' className={cn(buttonVariants(), 'text-xs md:text-sm')}>
-          <Icons.add className='mr-2 h-4 w-4' /> Novo veículo
-        </Link>
+        <div className='flex flex-wrap justify-end gap-2'>
+          <Link
+            href='/dashboard/consignacoes'
+            className={cn(buttonVariants({ variant: 'outline' }), 'text-xs md:text-sm')}
+          >
+            <Icons.fileContract className='mr-2 h-4 w-4' /> Consignações
+          </Link>
+          <Link
+            href='/dashboard/estoque/novo'
+            className={cn(buttonVariants(), 'text-xs md:text-sm')}
+          >
+            <Icons.add className='mr-2 h-4 w-4' /> Novo veículo
+          </Link>
+        </div>
       }
     >
       <EstoqueListingPage />
